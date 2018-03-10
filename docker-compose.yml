@@ -1,0 +1,27 @@
+version: "3.1"
+
+services:
+  application:
+    build:
+      context:
+        ./app/
+    command: ["npm", "run", "dev" ]
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./app:/usr/src/app
+    environment:
+      - NODE_ENV=development
+      - VIRTUAL_HOST=app.local
+
+  nginx-proxy:
+    build:
+      context:
+        ./nginx/
+    ports:
+      - "80:80"
+    depends_on:
+      - application
+    volumes:
+      - ./nginx/static:/srv/www/static
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
