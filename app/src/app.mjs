@@ -4,8 +4,8 @@ import { getSomeText } from './random/random.mjs';
 const app = express();
 
 app.use('/', (req, res) => {
-    let someText = getSomeText();
-    let txt = `Hello world, ${someText}`;
+    const someText = getSomeText();
+    const txt = `Hello world, ${someText}`;
     console.log('request received');
     res.send(txt);
 });

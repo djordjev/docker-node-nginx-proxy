@@ -4,7 +4,7 @@
   "description": "",
   "main": "app.mjs",
   "scripts": {
-    "dev": "nodemon --watch src --experimental-modules src/app.mjs "
+    "dev": "nodemon --inspect=0.0.0.0 --watch src --experimental-modules src/app.mjs "
   },
   "author": "Djordje Vukovic",
   "license": "ISC",
